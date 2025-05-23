@@ -12,7 +12,7 @@ import {
     Background,
     Panel } from "@xyflow/react";
 import { initialNodes, initialEdges } from "../constants";
-
+import { NodeType, EdgeType } from "../constants";
 import { Box } from "@chakra-ui/react";
 
 const Home=():ReactElement=>{
@@ -22,7 +22,9 @@ const Home=():ReactElement=>{
     const onConnect = useCallback((connection:Connection)=>{
         setEdges((eds)=>addEdge({
             ...connection,
-            animated:true
+            animated:true,
+            type:'customEdge'
+            // label:"default edges"
         }, eds))
     }, [setEdges])
 
@@ -52,6 +54,8 @@ const Home=():ReactElement=>{
                 onNodesChange={onNodesChange}
                 onEdgesChange={onEdgesChange}
                 onConnect={onConnect}
+                nodeTypes={NodeType}
+                edgeTypes={EdgeType}
             >
                 <MiniMap 
                     nodeColor={nodeColor} 

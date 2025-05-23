@@ -1,18 +1,31 @@
 import {type Edge, type Node} from "@xyflow/react"
+import TextUpdaterNode from "../Components/nodes/TextUpdaterNode"
+import CustomEdge from "../Components/edges/CustomEdge"
 // import { label } from "framer-motion/client"
 
+export const NodeType = {
+    textUpdater:TextUpdaterNode
+}
+
+export const EdgeType = {
+    customEdge: CustomEdge
+}
 
 export const initialEdges: Edge[] = [
     {
         id:"e1-2",
         source:"1",
         target: "2",
+        label:"input to other node",
+        // type:"step"
     },
     {
         id:"e2-3",
         source:"2",
         target:"3",
-        // animated:true
+        // animated:true,
+        label:"from other node to output",
+        // type:"step"
     }
 
 ]
@@ -44,5 +57,13 @@ export const initialNodes: Node[] = [
         style:{
             backgroundColor:"blue"
         }
+    },
+    {
+        id:'4',
+        type:"textUpdater",
+        data:{
+            label:"Custom Node"
+        },
+        position:{x:260, y:350},
     }
 ]

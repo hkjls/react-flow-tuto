@@ -3,6 +3,7 @@ import { ReactFlowProvider } from "@xyflow/react";
 import { AuthProvider } from "./Context/Auth";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Pages/HomePages";
+import "./index.css"
 
 const App=()=>{
     return(
